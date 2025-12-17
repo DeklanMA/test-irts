@@ -83,7 +83,6 @@ export default function ProductDetail() {
 
           <Separator />
 
-          {/* DESCRIPTION */}
           <div className="space-y-2">
             <h3 className="font-semibold text-lg">Description</h3>
             <p className="text-gray-600 leading-relaxed">

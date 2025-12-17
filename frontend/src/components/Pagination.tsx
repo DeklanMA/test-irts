@@ -44,7 +44,6 @@ export default function Pagination({ page, totalPages, onChange }: Props) {
             />
           </PaginationItem>
 
-          {/* PAGE NUMBERS */}
           {getPages().map((p, i) =>
             p === "..." ? (
               <PaginationItem key={`ellipsis-${i}`}>

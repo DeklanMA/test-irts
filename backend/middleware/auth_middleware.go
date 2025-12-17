@@ -19,8 +19,6 @@ func AuthMiddleware() gin.HandlerFunc {
 			})
 			return
 		}
-
-		// 🔥 HARUS "Bearer <token>"
 		parts := strings.Split(authHeader, " ")
 		if len(parts) != 2 || parts[0] != "Bearer" {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{

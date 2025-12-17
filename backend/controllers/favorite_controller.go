@@ -11,9 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// =======================
-// TOGGLE FAVORITE
-// =======================
+
 
 func AddFavorite(c *gin.Context) {
 	userID := c.GetUint("user_id")
@@ -34,7 +32,7 @@ func AddFavorite(c *gin.Context) {
 		return
 	}
 
-	// Optional: cek produk ada
+
 	var product models.Product
 	if err := config.DB.First(&product, productID).Error; err != nil {
 		c.JSON(http.StatusNotFound, gin.H{
@@ -50,9 +48,6 @@ func AddFavorite(c *gin.Context) {
 		Where("user_id = ? AND product_id = ?", userID, productID).
 		First(&fav).Error
 
-	// =======================
-	// UNFAVORITE
-	// =======================
 	if err == nil {
 		if err := config.DB.Delete(&fav).Error; err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
@@ -70,9 +65,6 @@ func AddFavorite(c *gin.Context) {
 		return
 	}
 
-	// =======================
-	// FAVORITE
-	// =======================
 	newFav := models.Favorite{
 		UserID:    userID,
 		ProductID: productID,

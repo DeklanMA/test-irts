@@ -82,7 +82,6 @@ export default function Profile() {
         </CardHeader>
 
         <CardContent className="space-y-6">
-          {/* NAME */}
           <div className="space-y-1">
             <Label>Name</Label>
             {editing ? (
@@ -95,7 +94,6 @@ export default function Profile() {
             )}
           </div>
 
-          {/* EMAIL */}
           <div className="space-y-1">
             <Label>Email</Label>
             {editing ? (
@@ -108,13 +106,11 @@ export default function Profile() {
             )}
           </div>
 
-          {/* ROLE (READ ONLY) */}
           <div className="space-y-1">
             <Label>Role</Label>
             <p className="text-sm capitalize">{user.role}</p>
           </div>
 
-          {/* PASSWORD (ONLY WHEN EDIT) */}
           {editing && (
             <>
               <Separator />
@@ -134,7 +130,6 @@ export default function Profile() {
 
           <Separator />
 
-          {/* ACTION BUTTONS */}
           <div className="flex justify-end gap-3">
             {editing ? (
               <>
