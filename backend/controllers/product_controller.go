@@ -49,10 +49,23 @@ func GetProducts(c *gin.Context) {
 		return
 	}
 
+	var result []dto.ProductResponse
+	for _, p := range products {
+		result = append(result, dto.ProductResponse{
+			ID:              p.ID,
+			ProductName:     p.ProductName,
+			ProductPrice:    p.ProductPrice,
+			Brand:           p.Brand,
+			ProductImageURL: p.ProductImageURL,
+			ProductInfo:     p.ProductInfo,
+			RealPDPURL:      p.RealPDPURL,
+		})
+	}
+
 	c.JSON(http.StatusOK, dto.APIResponse{
 		Success: true,
 		Message: "products fetched successfully",
-		Data:    products,
+		Data:    result, 
 		Meta: gin.H{
 			"page":        page,
 			"limit":       limit,
@@ -61,6 +74,7 @@ func GetProducts(c *gin.Context) {
 		},
 	})
 }
+
 
 func GetProduct(c *gin.Context) {
 	var product models.Product
@@ -76,6 +90,15 @@ func GetProduct(c *gin.Context) {
 	c.JSON(http.StatusOK, dto.APIResponse{
 		Success: true,
 		Message: "product fetched successfully",
-		Data:    product,
+		Data: dto.ProductResponse{
+			ID:              product.ID,
+			ProductName:     product.ProductName,
+			ProductPrice:    product.ProductPrice,
+			Brand:           product.Brand,
+			ProductImageURL: product.ProductImageURL,
+			ProductInfo:     product.ProductInfo,
+			RealPDPURL:      product.RealPDPURL,
+		},
 	})
 }
+

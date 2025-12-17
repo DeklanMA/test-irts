@@ -1,14 +1,14 @@
-import type { User } from "@/types/user"
-import { Button } from "@/components/ui/button"
-import { Pencil, Trash } from "lucide-react"
+import type {User} from '@/types/user';
+import {Button} from '@/components/ui/button';
+import {Pencil, Trash} from 'lucide-react';
 
 type Props = {
-  users: User[]
-  onEdit: (u: User) => void
-  onDelete: (id: number) => void
-}
+  users: User[];
+  onEdit: (u: User) => void;
+  onDelete: (id: number) => void;
+};
 
-export default function UserTable({ users, onEdit, onDelete }: Props) {
+export default function UserTable({users, onEdit, onDelete}: Props) {
   return (
     <div className="border rounded-lg overflow-x-auto">
       <table className="w-full text-sm">
@@ -44,5 +44,5 @@ export default function UserTable({ users, onEdit, onDelete }: Props) {
         </tbody>
       </table>
     </div>
-  )
+  );
 }

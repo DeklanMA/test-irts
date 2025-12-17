@@ -33,6 +33,7 @@ export default function AdminProducts() {
     try {
       const res = await getAdminProducts(page, 10)
       setProducts(res.data.data)
+      console.log(res.data.data)
       setTotalPages(res.data.meta.total_pages)
     } catch (err) {
       if (axios.isAxiosError(err)) {

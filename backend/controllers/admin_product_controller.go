@@ -49,9 +49,24 @@ func AdminGetProducts(c *gin.Context) {
 		return
 	}
 
+	
+	var result []dto.ProductResponse
+	for _, p := range products {
+		result = append(result, dto.ProductResponse{
+			ID:              p.ID,
+			ProductName:     p.ProductName,
+			ProductPrice:    p.ProductPrice,
+			Brand:           p.Brand,
+			ProductImageURL: p.ProductImageURL,
+			ProductInfo:     p.ProductInfo,
+			RealPDPURL:      p.RealPDPURL,
+		})
+	}
+
 	c.JSON(http.StatusOK, dto.APIResponse{
 		Success: true,
-		Data:    products,
+		Message: "products fetched successfully",
+		Data:    result,
 		Meta: gin.H{
 			"page":        page,
 			"limit":       limit,
@@ -60,8 +75,6 @@ func AdminGetProducts(c *gin.Context) {
 		},
 	})
 }
-
-
 
 func AdminCreateProduct(c *gin.Context) {
 	var input dto.ProductInput
@@ -94,12 +107,17 @@ func AdminCreateProduct(c *gin.Context) {
 	c.JSON(http.StatusCreated, dto.APIResponse{
 		Success: true,
 		Message: "product created",
-		Data:    product,
+		Data: dto.ProductResponse{
+			ID:              product.ID,
+			ProductName:     product.ProductName,
+			ProductPrice:    product.ProductPrice,
+			Brand:           product.Brand,
+			ProductImageURL: product.ProductImageURL,
+			ProductInfo:     product.ProductInfo,
+			RealPDPURL:      product.RealPDPURL,
+		},
 	})
-
 }
-
-
 
 func AdminUpdateProduct(c *gin.Context) {
 	var product models.Product
@@ -139,11 +157,17 @@ func AdminUpdateProduct(c *gin.Context) {
 	c.JSON(http.StatusOK, dto.APIResponse{
 		Success: true,
 		Message: "product updated",
-		Data:    product,
+		Data: dto.ProductResponse{
+			ID:              product.ID,
+			ProductName:     product.ProductName,
+			ProductPrice:    product.ProductPrice,
+			Brand:           product.Brand,
+			ProductImageURL: product.ProductImageURL,
+			ProductInfo:     product.ProductInfo,
+			RealPDPURL:      product.RealPDPURL,
+		},
 	})
 }
-
-
 
 func AdminDeleteProduct(c *gin.Context) {
 	var product models.Product

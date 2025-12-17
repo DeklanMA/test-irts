@@ -18,4 +18,6 @@ type ProductResponse struct {
 	ProductImageURL string `json:"product_image_url"`
 	ProductInfo     string `json:"product_info"`
 	RealPDPURL      string `json:"real_pdp_url"`
+	CreatedAt       string `json:"created_at,omitempty"`
+	UpdatedAt       string `json:"updated_at,omitempty"`
 }

@@ -31,8 +31,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     api.get("/products?limit=100").then(res => {
       setProducts(res.data.data);
+
     });
   }, []);
+
 
  
   useEffect(() => {
@@ -48,7 +50,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         const res = await getFavorites();
         if (cancelled) return;
 
-        const favs = res.data as Favorite[];
+
+        const favs = res.data.data as Favorite[];
         const mapped = favs
           .map(f => products.find(p => p.id === f.ProductID))
           .filter((p): p is Product => p !== undefined);

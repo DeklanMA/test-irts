@@ -56,10 +56,12 @@ func AdminGetUsers(c *gin.Context) {
 		message = "no users found"
 	}
 
+	responses := dto.ToUserResponseList(users)
+
 	c.JSON(http.StatusOK, dto.APIResponse{
 		Success: true,
 		Message: message,
-		Data:    users,
+		Data:    responses,
 		Meta: gin.H{
 			"page":        page,
 			"limit":       limit,
@@ -84,7 +86,7 @@ func AdminGetUser(c *gin.Context) {
 
 	c.JSON(http.StatusOK, dto.APIResponse{
 		Success: true,
-		Data:    user,
+		Data:    dto.ToUserResponse(user),
 	})
 }
 
@@ -120,12 +122,7 @@ func AdminCreateUser(c *gin.Context) {
 	c.JSON(http.StatusCreated, dto.APIResponse{
 		Success: true,
 		Message: "user created",
-		Data: dto.UserResponse{
-			ID:    user.ID,
-			Name:  user.Name,
-			Email: user.Email,
-			Role:  user.Role,
-		},
+				Data: dto.ToUserResponse(user),
 	})
 }
 
@@ -159,12 +156,7 @@ func AdminUpdateUser(c *gin.Context) {
 	c.JSON(http.StatusOK, dto.APIResponse{
 		Success: true,
 		Message: "user updated",
-		Data: dto.UserResponse{
-			ID:    user.ID,
-			Name:  user.Name,
-			Email: user.Email,
-			Role:  user.Role,
-		},
+		Data: dto.ToUserResponse(user),
 	})
 }
 
