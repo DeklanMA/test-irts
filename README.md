@@ -41,7 +41,6 @@ Fullstack E-Commerce Application
 * GORM
 * PostgreSQL / SQLite
 * JWT Authentication
-* Cloudflare Tunnel (optional)
 
 ### Frontend
 
