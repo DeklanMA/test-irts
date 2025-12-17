@@ -1,0 +1,74 @@
+# =========================
+# Go build artifacts
+# =========================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+bin/
+build/
+
+# =========================
+# Go workspace files
+# =========================
+go.work
+go.work.sum
+
+# =========================
+# Dependency directories
+# =========================
+vendor/
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+tmp/
+temp/
+
+# =========================
+# Database files (local dev)
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Coverage & profiling
+# =========================
+coverage.out
+coverage/
+*.pprof
+
+# =========================
+# Cloudflared / Tunnel
+# =========================
+*.json
+*.pem
+*.crt
+cloudflared/
