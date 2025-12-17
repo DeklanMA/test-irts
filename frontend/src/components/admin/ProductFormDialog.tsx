@@ -94,7 +94,6 @@ export default function ProductFormDialog({
         </DialogHeader>
 
         <div className="space-y-4">
- 
           <div>
             <Label className="mb-2">Name *</Label>
             <Input
@@ -166,7 +165,6 @@ export default function ProductFormDialog({
             )}
           </div>
 
-          {/* INFO */}
           <div>
             <Label className="mb-2">Product Info</Label>
             <Input

@@ -38,12 +38,11 @@ export default function ProductCard({product}: Props) {
           Rp {product.product_price.toLocaleString('id-ID')}
         </p>
       </CardContent>
-
       <CardFooter className="flex gap-2">
         {!auth.token ? (
           <Button
             variant="outline"
-            className="w-full"
+            className="w-full cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
               navigate('/login');
@@ -55,6 +54,7 @@ export default function ProductCard({product}: Props) {
           <>
             <Button
               size="icon"
+              className="cursor-pointer"
               variant={isFavorite(product.id) ? 'default' : 'outline'}
               onClick={(e) => {
                 e.stopPropagation();
@@ -67,9 +67,8 @@ export default function ProductCard({product}: Props) {
                 }`}
               />
             </Button>
-
             <Button
-              className="flex-1"
+              className="flex-1 cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();
                 addToCart(product);

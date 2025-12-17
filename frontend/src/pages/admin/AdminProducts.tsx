@@ -33,7 +33,6 @@ export default function AdminProducts() {
     try {
       const res = await getAdminProducts(page, 10)
       setProducts(res.data.data)
-      console.log(res.data.data)
       setTotalPages(res.data.meta.total_pages)
     } catch (err) {
       if (axios.isAxiosError(err)) {
@@ -97,6 +96,7 @@ export default function AdminProducts() {
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Admin Products</h1>
         <Button
+        className="cursor-pointer"
           onClick={() => {
             setEditData(null)
             setOpenForm(true)
@@ -105,8 +105,6 @@ export default function AdminProducts() {
           + Add Product
         </Button>
       </div>
-
-
       {loading ? (
         <div className="flex justify-center py-20">
           <Spinner className="w-10 h-10" />

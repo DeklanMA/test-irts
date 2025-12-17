@@ -11,9 +11,17 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ShoppingBag, CreditCard } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
+import { Navigate } from "react-router-dom";
 
 export default function Checkout() {
   const { cart } = useCart();
+
+    const { auth } = useAuth()
+  
+    if (auth.role !== "customer") {
+      return <Navigate to="/" replace />
+    }
 
   const total = cart.reduce(
     (sum, i) => sum + i.product_price * i.qty,

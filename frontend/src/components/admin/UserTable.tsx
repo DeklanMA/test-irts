@@ -28,11 +28,17 @@ export default function UserTable({users, onEdit, onDelete}: Props) {
               <td>{u.email}</td>
               <td className="capitalize">{u.role}</td>
               <td className="flex gap-2 p-2 justify-center">
-                <Button size="icon" variant="outline" onClick={() => onEdit(u)}>
+                <Button
+                  size="icon"
+                  className="cursor-pointer"
+                  variant="outline"
+                  onClick={() => onEdit(u)}
+                >
                   <Pencil size={16} />
                 </Button>
                 <Button
                   size="icon"
+                  className="cursor-pointer"
                   variant="destructive"
                   onClick={() => onDelete(u.id)}
                 >

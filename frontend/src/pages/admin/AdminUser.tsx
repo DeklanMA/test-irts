@@ -95,6 +95,7 @@ export default function AdminUsers() {
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Admin Users</h1>
         <Button
+        className="cursor-pointer"
           onClick={() => {
             setEditData(null)
             setOpenForm(true)

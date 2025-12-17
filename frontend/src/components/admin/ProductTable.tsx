@@ -55,6 +55,7 @@ export default function ProductTable({
               <td className="flex gap-2 justify-center p-2">
                 <Button
                   size="icon"
+                  className="cursor-pointer"
                   variant="outline"
                   onClick={() => onEdit(p)}
                 >
@@ -63,6 +64,7 @@ export default function ProductTable({
 
                 <Button
                   size="icon"
+                  className="cursor-pointer"
                   variant="destructive"
                   onClick={() => onDelete(p.id)}
                 >
