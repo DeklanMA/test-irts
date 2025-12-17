@@ -22,7 +22,7 @@ Fullstack E-Commerce Application
 * Product detail
 * Admin CRUD Product
 * Favorite product
-* Cart & Checkout (Order)
+* Cart 
 
 ### 👨‍💼 Admin Panel
 
